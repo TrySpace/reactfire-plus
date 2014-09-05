@@ -3,9 +3,9 @@
 This is a ReactFire fork [https://github.com/firebase/reactfire]
 
 No hard changes, only the addition of a 3rd argument as an array: [ once, type, eventType ]
--`once`: boolean to invoke `.once()` on a firebaseRef, instead of `.on()`
--`type`: either 'state' or 'props', to bind to (**Props will not bind with `.on()`, for it is bad practice**. `props` will only work when `once` is `true` )
--`eventType`: must be valid Firebase eventType strings: 'value', 'child_added', 'child_changed', 'child_removed', or 'child_moved'
+- `once`: boolean to invoke `.once()` on a firebaseRef, instead of `.on()`
+- `type`: either 'state' or 'props', to bind to (**Props will not bind with `.on()`, for it is bad practice**. `props` will only work when `once` is `true` )
+- `eventType`: must be valid Firebase eventType string: 'value', 'child_added', 'child_changed', 'child_removed', or 'child_moved'
 
 And shorthands for various combinations of the above.
 
@@ -79,23 +79,20 @@ this.propAsObject( new Firebase('https://<FB_PATH>/'), 'items', [ 'child_removed
 ### bindAsArray(firebaseRef, bindVar, options[ once, type, eventType ])
 
 Additional options can be given:
--`once`: `true` to invoke `.once()`, `false` for `.on()`
--`type`: either 'state' or 'props', to bind to (**Props will not bind with .on(), for it is bad practice**. `props` will only work when `once` is `true` )
--`eventType`: must be valid Firebase eventType strings: 'value', 'child_added', 'child_changed', 'child_removed', or 'child_moved'
+- `once`: `true` to invoke `.once()`, `false` for `.on()`
+- `type`: either 'state' or 'props', to bind to (**Props will not bind with .on(), for it is bad practice**. `props` will only work when `once` is `true` )
+- `eventType`: must be valid Firebase eventType string: 'value', 'child_added', 'child_changed', 'child_removed', or 'child_moved'
 
 ```javascript
 var firebaseRef = new Firebase("https://<FB_PATH>/");
-this.bindAsArray(firebaseRef, "items" [ false, 'props', 'child_removed' ]);
+this.bindAsArray(firebaseRef, "items" [ true, 'props', 'child_removed' ]);
 ```
 
 ### bindAsObject(firebaseRef, bindVar, options[ once, type, eventType ])
 
-Creates a binding between Firebase and the inputted bind variable as an object. The Firebase
-reference will be stored in `this.firebaseRefs[bindVar]`.
-
 ```javascript
 var firebaseRef = new Firebase("https://<FB_PATH>/");
-this.bindAsObject(firebaseRef, "items", [ false, 'props', 'child_removed' ]);
+this.bindAsObject(firebaseRef, "items", [ true, 'props', 'child_removed' ]);
 ```
 
 ## Use it
