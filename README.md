@@ -4,7 +4,7 @@ This is a ReactFire fork [https://github.com/firebase/reactfire]
 
 No hard changes, only the addition of a 3rd argument as an array: [ once, type, eventType ]
 - `once`: boolean to invoke `.once()` on a firebaseRef, instead of `.on()`
-- `type`: either 'state' or 'props', to bind to (**Props will not bind with `.on()`, for it is bad practice**. `props` will only work when `once` is `true` )
+- `type`: either 'state' or 'props', to bind to (**Props will not bind with `.on()`, for it is bad practice**. *props* will only work when *once* is *true* )
 - `eventType`: must be valid Firebase eventType string: 'value', 'child_added', 'child_changed', 'child_removed', or 'child_moved'
 
 And shorthands for various combinations of the above.
@@ -21,7 +21,7 @@ For original `reactfire`: [https://github.com/firebase/reactfire]
 
 ### bindOnAdded(firebaseRef, bindVar, asArray)
 
-Creates a 'child_added' binding between Firebase and the inputted bind variable as an Object if `isArray` not specified, as an Array if `isArray` is `true`.
+Creates a 'child_added' binding between Firebase and the inputted bind variable as an Object if `asArray` not specified, as an Array if `asArray` is `true`.
 ```javascript
 this.bindOnAdded( new Firebase('https://<FB_PATH>/'), 'items'); // bind as Object
 this.bindOnAdded( new Firebase('https://<FB_PATH>/'), 'items', true); // bind as Array
@@ -29,20 +29,20 @@ this.bindOnAdded( new Firebase('https://<FB_PATH>/'), 'items', true); // bind as
 
 ### bindOnRemoved(firebaseRef, bindVar, asArray)
 
-Creates a 'child_removed' binding between Firebase and the inputted bind variable as an Object (if `isArray` not specified). Binds as an Array if `isArray` is `true`.
+Creates a 'child_removed' binding between Firebase and the inputted bind variable as an Object (if `asArray` not specified). Binds as an Array if `asArray` is `true`.
 ```javascript
 this.bindOnRemoved( new Firebase('https://<FB_PATH>/'), 'items');
 ```
 
 ### bindOnChanged(firebaseRef, bindVar, asArray)
 
-Creates a 'child_changed' binding between Firebase and the inputted bind variable as an Object (if `isArray` not specified). Binds as an Array if `isArray` is `true`.
+Creates a 'child_changed' binding between Firebase and the inputted bind variable as an Object (if `asArray` not specified). Binds as an Array if `asArray` is `true`.
 ```javascript
 this.bindOnChanged( new Firebase('https://<FB_PATH>/'), 'items');
 ```
 ### bindOnMoved(firebaseRef, bindVar, asArray)
 
-Creates a 'child_moved' binding between Firebase and the inputted bind variable as an Object (if `isArray` not specified). Binds as an Array if `isArray` is `true`.
+Creates a 'child_moved' binding between Firebase and the inputted bind variable as an Object (if `asArray` not specified). Binds as an Array if `asArray` is `true`.
 ```javascript
 this.bindOnMoved( new Firebase('https://<FB_PATH>/'), 'items');
 ```
@@ -80,7 +80,7 @@ this.propAsObject( new Firebase('https://<FB_PATH>/'), 'items', [ 'child_removed
 
 Additional options can be given:
 - `once`: `true` to invoke `.once()`, `false` for `.on()`
-- `type`: either 'state' or 'props', to bind to (**Props will not bind with .on(), for it is bad practice**. `props` will only work when `once` is `true` )
+- `type`: either 'state' or 'props', to bind to (**Props will not bind with .on(), for it is bad practice**. *props* will only work when *once* is *true* )
 - `eventType`: must be valid Firebase eventType string: 'value', 'child_added', 'child_changed', 'child_removed', or 'child_moved'
 
 ```javascript
