@@ -144,7 +144,7 @@ var ReactFireMixin = {
 			else {
 				newStore[bindVar] = dataSnapshot.val();
 			}
-	      	this._validateType(options.store) ? this.setState(newStore) : this.setProps(newStore);
+	      	options.store ? this.setState(newStore) : this.setProps(newStore);
 	    }.bind(this));
 	}
   },
@@ -219,7 +219,7 @@ var ReactFireMixin = {
 		var _defaultOptions = [false, 'state', 'value'];
 		options = (typeof options !== 'undefined' && this._isArray(options) ) ? options : _defaultOptions;
 		options[0] = this._validateOnce(options[0]) || _defaultOptions[0];
-		options[1] = this._validateType(options[1]) || _defaultOptions[1];
+		options[1] = this._validateType(options[1]) || this._validateType(_defaultOptions[1]); // returns true
 		options[2] = this._validateEventType(options[2]) || _defaultOptions[2];
 		options = this._validatePropState(options);
 		return {
